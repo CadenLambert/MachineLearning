@@ -1,7 +1,5 @@
 # -*- coding: utf-8 -*-
 
-import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
 
 """
@@ -24,30 +22,3 @@ def LSR(x,y):
     
     return lineFunction, MSE, m, b
 
-
-
-df = pd.read_csv("datasets/iris.data", header=None)
-y = df.iloc[0:100,4].values
-y = np.where(y == 'Iris-setosa', -1,1)
-
-"""
-0 = sepal length
-1 = sepal width
-2 = petal length
-3 = petal width
-"""
-
-X = df.iloc[0:100, [2,3]].values
-
-predictor, Rsquared, m,b = LSR(X[:100, 0], X[:100, 1])
-errLabel = "R^2 error: " + str(Rsquared) + "\ny = " + str(m) + "x" + " + " + str(b) 
-
-plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o',
-label='setosa')
-plt.scatter(X[50:100, 0], X[50:100, 1], color='blue',
-marker='x', label='versicolor')
-plt.plot(X[:100, 0],predictor(X[:100, 0]), label = errLabel)
-plt.xlabel('petal length')
-plt.ylabel('petal width')
-plt.legend(loc='upper left')
-plt.show()
