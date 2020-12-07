@@ -21,7 +21,7 @@ class LR:
             z = np.dot(X, self.theta)
             h = self.__sigmoid(z)
             gradient = np.dot(X.T, (h - y)) / y.size
-            self.theta -= self.learning_rate * gradient
+            self.theta -= self.learning_rate * gradient # gradient descent
             
             self.loss.append(self.__loss(h, y))
     
