@@ -6,6 +6,8 @@ class LR:
     def __init__(self, learning_rate = 0.01, epochs = 10000):
         self.epochs = epochs
         self.learning_rate = learning_rate
+        self.theta = None
+        self.loss = None
         
     def __sigmoid(self, z):
         return 1 / (1 + np.exp(-z))
