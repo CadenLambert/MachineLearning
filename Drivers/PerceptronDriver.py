@@ -10,6 +10,13 @@ df = pd.read_csv('https://archive.ics.uci.edu/ml/machine-learning-databases/iris
 y = df.iloc[0:100,4].values
 y = np.where(y == 'Iris-setosa', -1,1)
 
+"""
+0 = sepal length
+1 = sepal width
+2 = petal length
+3 = petal width
+"""
+
 X = df.iloc[0:100, [2,3]].values
 
 plt.scatter(X[:50, 0], X[:50, 1], color='red', marker='o',

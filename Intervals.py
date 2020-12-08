@@ -1,5 +1,9 @@
 import numpy as np
 
+"""
+Intervals is a hypothesis class that takes in a 1-d numpy array of data and finds
+all possible intervals within that data. 
+"""
 class Intervals:
     
     def __init__(self, X):
@@ -7,6 +11,16 @@ class Intervals:
         self.__bestFunction = None
         self.__allIntervals = None
         
+    """
+    The allLabelings function returns all of the labels possible from the
+    given dataset.  The intervals are determined by finding the min and max of
+    the dataset and a step size found by subtracting the min from the max divided
+    by the length of the dataset. Now it loops through all possible intervals 
+    by starting at the min and incrementing by the step size for the outer loop 
+    and doing the same for the inner loop. Once the intervals have been generated
+    it loops through all of them and labels the points in the dataset accordingly
+    and then add that labeling to an array. Finally it returns the array of labels
+    """ 
     def allLabelings(self):
         
         allLabels = []
@@ -39,6 +53,10 @@ class Intervals:
         allLabels = np.array(allLabels)
         return allLabels
         
+    """
+    setBestFunction takes in the index of the desired labeling and defines a
+    function that has that definition.
+    """
     def setBestFunction(self, x):
         userInterval = self.__allIntervals[x]
         def interval(point):       # define the function with the appropriate bound
@@ -47,6 +65,10 @@ class Intervals:
             else:
                 return 0
         self.__bestFunction = interval
+        
 
+    """
+    getBestFunction returns the function defined in setBestFunction.
+    """
     def getBestFunction(self):
         return self.__bestFunction

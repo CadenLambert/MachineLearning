@@ -1,9 +1,8 @@
 import pandas as pd
-import matplotlib.pyplot as plt
 import KNearestNeighbor as knn
 import numpy as np
 
-
+# The included mnist dataset is about 1/4 of the size of the original to save space
 train = pd.read_csv("../datasets/mnist_train.csv", header = 0)
 test = pd.read_csv("../datasets/mnist_test.csv", header = 0)
 
@@ -18,14 +17,14 @@ kNN = knn.KNN()
 # Must be with within range of the test values
 index = 500 
 
-result = kNN.find(X, y, X_test[index])
+result = kNN.classify(X, y, X_test[index])
 
 print("Found result: " + str(result))
 print("Actual label: " + str(y_test[index]))
 
 pred = []
 for i in range(100):
-    temp = kNN.find(X, y, X_test[i])
+    temp = kNN.classify(X, y, X_test[i])
     pred.append(temp)
     
 pred = np.array(pred)

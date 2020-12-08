@@ -44,7 +44,7 @@ plt.plot([x_min, x_max], [line_min, line_max])
 plt.plot([x_min, x_max], [margin1_min, margin1_max], "y--")
 plt.plot([x_min, x_max], [margin2_min, margin2_max], "y--")
 
-plt.xlabel("sepal length')
+plt.xlabel('sepal length')
 plt.ylabel('petal width')
 plt.legend(loc='upper left')
 plt.show()
